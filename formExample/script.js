@@ -50,12 +50,17 @@ const summaryBox = document.getElementById("summary");
       if (isValid) {
         // Display summary (excluding passwords)
         summaryBox.style.display = "block";
-        summaryBox.innerHTML = `
-          <h3>Registration Successful!</h3>
-          <p><strong>Full Name:</strong> ${fullname}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Gender:</strong> ${gender}</p>
-        `;
+        summaryBox.innerHTML = ""; // Clear previous summary
+        let h3 = document.createElement("h3");
+        h3.textContent = "Registration Sucessful!";
+        summaryBox.appendChild(h3); 
+        let namePara = document.createElement("p");
+        namePara.textContent = `Full Name: ${fullname}`;
+        summaryBox.appendChild(namePara);
+        let emailPara = document.createElement("p");
+        emailPara.textContent = `Email: ${email}`;
+        summaryBox.appendChild(emailPara);
+        
         form.reset();
       }
     });
